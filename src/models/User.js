@@ -2,7 +2,11 @@ const { DataTypes, Model } = require('sequelize');
 const bcryptjs = require('bcryptjs');
 const sequelize = require('../database/db');
 
-class User extends Model {}
+class User extends Model {
+  passwordIsValid(password) {
+    return bcryptjs.compare(password, this.password_hash);
+  }
+}
 
 function passwordValidation(value) {
   if (!/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).*$/.test(value)) {

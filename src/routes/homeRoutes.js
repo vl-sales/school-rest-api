@@ -1,9 +1,10 @@
 import { Router } from 'express';
 import homeController from '../controllers/homeController';
+import loginRequired from '../middlewares/loginRequired';
 
 const homeRouter = new Router();
 
-homeRouter.get('/', (req, res) => {
+homeRouter.get('/', loginRequired, (req, res) => {
   homeController.index(req, res);
 });
 

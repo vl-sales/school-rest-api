@@ -3,6 +3,8 @@ import express from 'express';
 import homeRouter from './src/routes/homeRoutes';
 import sequelize from './src/database/db';
 import userRouter from './src/routes/UserRoutes';
+import tokenRouter from './src/routes/TokenRoutes';
+
 // Importação de modelos
 import './src/models/Student';
 import './src/models/User';
@@ -25,6 +27,7 @@ class App {
   routes() {
     this.app.use('/', homeRouter);
     this.app.use('/users', userRouter);
+    this.app.use('/token', tokenRouter)
   }
 
   dbAuthentication() {
