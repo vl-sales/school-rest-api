@@ -1,0 +1,6 @@
+const { resolve } = require('path')
+
+module.exports = {
+  'migrations-path': resolve(__dirname, 'src', 'migrations'),
+  'seeders-path': resolve(__dirname, 'src', 'migrations', 'seeds'),
+};
