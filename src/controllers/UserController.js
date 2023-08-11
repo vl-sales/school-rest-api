@@ -4,8 +4,8 @@ class UserController {
   async create(req, res) {
     try {
       const newUser = await User.create(req.body);
-
-      res.json(newUser);
+      const { id, name, email } = newUser;
+      res.json({ id, name, email });
     } catch (err) {
       res.status(400);
       res.json({
@@ -14,42 +14,19 @@ class UserController {
     }
   }
 
-  async index(req, res) {
-    try {
-      const users = await User.findAll();
-      return res.json(users);
-    } catch (error) {
-      return res.json(null);
-    }
-  }
-
-  async show(req, res) {
-    try {
-      const { id } = req.params;
-      const user = await User.findByPk(id);
-
-      return res.json(user);
-    } catch (error) {
-      return res.json(null);
-    }
-  }
-
   async update(req, res) {
     try {
-      if (!req?.params?.id) {
-        return res.status(400).json({
-          error: 'Id is required',
-        });
-      }
-
-      const user = await User.findByPk(req?.params?.id);
+      const user = await User.findByPk(req?.userId);
       if (!user) {
         return res.status(400).json({
           error: 'User not found',
         });
       }
 
-      return res.json(await user.update(req.body));
+      await user.update(req.body);
+
+      const { id, name, email } = req.body;
+      return res.json({ id, name, email });
     } catch (error) {
       return res.json(null);
     }
@@ -57,13 +34,7 @@ class UserController {
 
   async delete(req, res) {
     try {
-      if (!req?.params?.id) {
-        return res.status(400).json({
-          error: 'Id is required',
-        });
-      }
-
-      const user = await User.findByPk(req?.params?.id);
+      const user = await User.findByPk(req?.userId);
       if (!user) {
         return res.status(400).json({
           error: 'User not found',
@@ -71,7 +42,7 @@ class UserController {
       }
 
       await user.destroy();
-      return res.json(user);
+      return res.json(null);
     } catch (error) {
       return res.json(null);
     }
