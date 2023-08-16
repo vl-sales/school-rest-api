@@ -8,9 +8,7 @@ class UserController {
       res.json({ id, name, email });
     } catch (err) {
       res.status(400);
-      res.json({
-        error: err.errors.map((error) => error.message)[0],
-      });
+      res.json({ error: err.errors.map((error) => error.message)[0] });
     }
   }
 
@@ -18,9 +16,7 @@ class UserController {
     try {
       const user = await User.findByPk(req?.userId);
       if (!user) {
-        return res.status(400).json({
-          error: 'User not found',
-        });
+        return res.status(400).json({ error: 'User not found' });
       }
 
       await user.update(req.body);
@@ -36,15 +32,13 @@ class UserController {
     try {
       const user = await User.findByPk(req?.userId);
       if (!user) {
-        return res.status(400).json({
-          error: 'User not found',
-        });
+        return res.status(400).json({ error: 'User not found' });
       }
 
       await user.destroy();
       return res.json(null);
     } catch (error) {
-      return res.json(null);
+      return res.json(error);
     }
   }
 }

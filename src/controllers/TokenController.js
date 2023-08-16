@@ -14,15 +14,11 @@ class TokenController {
     const user = await User.findOne({ where: { email } });
 
     if (!user) {
-      return res.status(400).json({
-        erro: 'User does not exist',
-      });
+      return res.status(400).json({ erro: 'User does not exist' });
     }
 
     if (!user.passwordIsValid(password)) {
-      return res.status(400).json({
-        error: 'Invalid credentials',
-      });
+      return res.status(400).json({ error: 'Invalid credentials' });
     }
 
     const { id } = user;
