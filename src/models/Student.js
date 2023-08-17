@@ -18,9 +18,9 @@ Student.init(
       validate: {
         len: {
           args: [3, 255],
-          msg: "Name must be between 3 and 255 characters."
-        }
-      }
+          msg: 'First name must be between 3 and 255 characters.',
+        },
+      },
     },
     lastName: {
       type: DataTypes.STRING,
@@ -29,9 +29,9 @@ Student.init(
       validate: {
         len: {
           args: [3, 255],
-          msg: "Name must be between 3 and 255 characters."
-        }
-      }
+          msg: 'Last Name must be between 3 and 255 characters.',
+        },
+      },
     },
     email: {
       type: DataTypes.STRING,
@@ -39,9 +39,9 @@ Student.init(
       unique: true,
       validate: {
         isEmail: {
-          msg: 'Invalid e-mail'
-        }
-      }
+          msg: 'Invalid e-mail',
+        },
+      },
     },
     age: {
       type: DataTypes.INTEGER,
@@ -49,9 +49,9 @@ Student.init(
       defaultValue: '',
       validate: {
         isInt: {
-          msg: "Age must be integer"
-        }
-      }
+          msg: 'Age must be integer',
+        },
+      },
     },
     weight: {
       type: DataTypes.FLOAT,
@@ -59,9 +59,9 @@ Student.init(
       defaultValue: '',
       validate: {
         isFloat: {
-          msg: "Weight must be float"
-        }
-      }
+          msg: 'Weight must be float',
+        },
+      },
     },
     height: {
       type: DataTypes.FLOAT,
@@ -69,9 +69,9 @@ Student.init(
       defaultValue: '',
       validate: {
         isFloat: {
-          msg: "Height must be float"
-        }
-      }
+          msg: 'Height must be float',
+        },
+      },
     },
     created_at: {
       type: DataTypes.DATE,

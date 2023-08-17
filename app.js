@@ -28,8 +28,8 @@ class App {
   routes() {
     this.app.use('/', homeRouter);
     this.app.use('/users', userRouter);
-    this.app.use('/token', tokenRouter)
-    this.app.use('/students', studentsRouter)
+    this.app.use('/token', tokenRouter);
+    this.app.use('/students', studentsRouter);
   }
 
   dbAuthentication() {
