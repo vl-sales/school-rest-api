@@ -47,8 +47,8 @@ class App {
       .then(() => {
         console.log('database has been synchronized');
       })
-      .catch(() => {
-        console.log('Unable to sync the database');
+      .catch((e) => {
+        console.log('Unable to sync the database', e);
       });
   }
 

@@ -46,7 +46,6 @@ Student.init(
     age: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      defaultValue: '',
       validate: {
         isInt: {
           msg: 'Age must be integer',
@@ -56,7 +55,6 @@ Student.init(
     weight: {
       type: DataTypes.FLOAT,
       allowNull: false,
-      defaultValue: '',
       validate: {
         isFloat: {
           msg: 'Weight must be float',
@@ -66,7 +64,6 @@ Student.init(
     height: {
       type: DataTypes.FLOAT,
       allowNull: false,
-      defaultValue: '',
       validate: {
         isFloat: {
           msg: 'Height must be float',
