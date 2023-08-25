@@ -25,5 +25,7 @@ module.exports = {
     'class-methods-use-this': 'off',
     'no-console': 'off',
     'no-param-reassign': 'off',
+    'prefer-arrow-callback': 'off',
+    'func-names': 'off',
   },
 };

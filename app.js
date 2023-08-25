@@ -5,6 +5,7 @@ import sequelize from './src/database/db';
 import userRouter from './src/routes/UserRoutes';
 import tokenRouter from './src/routes/TokenRoutes';
 import studentsRouter from './src/routes/StudentRoutes';
+import uploadRouter from './src/routes/UploadRoutes';
 
 // Importação de modelos
 import './src/models/Student';
@@ -30,6 +31,7 @@ class App {
     this.app.use('/users', userRouter);
     this.app.use('/token', tokenRouter);
     this.app.use('/students', studentsRouter);
+    this.app.use('/upload', uploadRouter);
   }
 
   dbAuthentication() {
