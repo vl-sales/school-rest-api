@@ -30,4 +30,4 @@ class TokenController {
   }
 }
 
-export default new TokenController();
+export default TokenController;

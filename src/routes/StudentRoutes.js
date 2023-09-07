@@ -1,8 +1,9 @@
 import { Router } from 'express';
-import studentController from '../controllers/StudentController';
+import StudentController from '../controllers/StudentController';
 import loginRequired from '../middlewares/loginRequired';
 
 const studentsRouter = new Router();
+const studentController = new StudentController();
 
 studentsRouter.get('/', studentController.index);
 studentsRouter.post('/', loginRequired, studentController.store);

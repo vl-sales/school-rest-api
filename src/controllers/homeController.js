@@ -15,4 +15,4 @@ class HomeController {
   }
 }
 
-export default new HomeController();
+export default HomeController;

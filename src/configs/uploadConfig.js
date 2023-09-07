@@ -15,7 +15,7 @@ const upload = multer.diskStorage({
   },
 });
 
-export default multer({
+export default {
   storage: upload,
   limits: { fileSize: 1.048576e6 * 3 },
   fileFilter: (req, file, cb) => {
@@ -24,4 +24,4 @@ export default multer({
     }
     return cb(new Error('Invalid mime type'));
   },
-});
+};
